@@ -121,9 +121,7 @@ The application will be available at `http://localhost:8080/billing-service`.
 ## Testing the API
 
 ### 1. Using Postman
-- Import the API collection into Postman.
-- Add the required request body and headers.
-- Add Basic Auth request header with username as user and password as password (just for this demo purpose).
+- Import the [Postman collection](postman/BillingServiceAPI.postman_collection.json) into Postman.
 - Send the request to the `/api/v1/calculate` endpoint.
 
 ### 2. Using cURL
