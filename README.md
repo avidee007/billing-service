@@ -102,7 +102,8 @@ The application will be available at `http://localhost:8080/billing-service`.
     {
       "category": "OTHER",
       "price": 500
-    },{
+    },
+     {
       "category": "GROCERIES",
       "price": 200
     }
@@ -139,7 +140,8 @@ curl -X POST http://localhost:8080/billing-service/api/v1/calculate \
     {
       "category": "OTHER",
       "price": 500
-    },{
+    },
+    {
       "category": "GROCERIES",
       "price": 200
     },
