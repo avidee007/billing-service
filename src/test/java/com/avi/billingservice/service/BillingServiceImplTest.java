@@ -27,7 +27,7 @@ class BillingServiceImplTest {
     private DiscountStrategy discountStrategy;
 
     @Mock
-    private ExchangeRateService exchangeService;
+    private ExchangeRateApiService exchangeService;
 
     @InjectMocks
     private BillingServiceImpl billingService;

@@ -15,7 +15,6 @@ public class BillingServiceImpl implements BillingService {
     private final DiscountStrategyFactory discountStrategyFactory;
     private final CurrencyConversionRateService exchangeService;
 
-
     /**
      * Does discount calculation, bill calculation and currency conversion for given bill.
      *
@@ -54,6 +53,5 @@ public class BillingServiceImpl implements BillingService {
         double discount = discountStrategy.calculateDiscount(bill);
         log.info("Discount for non grocery items calculated : {}", discount);
         return discount;
-
     }
 }

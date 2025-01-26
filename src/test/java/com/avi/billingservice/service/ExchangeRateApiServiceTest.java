@@ -1,7 +1,7 @@
 package com.avi.billingservice.service;
 
-import com.avi.billingservice.model.valueobjects.ExchangeRateApiResponse;
 import com.avi.billingservice.exception.CurrencyRateApiException;
+import com.avi.billingservice.model.valueobjects.ExchangeRateApiResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class ExchangeRateServiceTest {
+class ExchangeRateApiServiceTest {
 
     @Mock
     private RestTemplate restTemplate;
@@ -27,7 +27,7 @@ class ExchangeRateServiceTest {
     private RestTemplateBuilder restTemplateBuilder;
 
     @InjectMocks
-    private ExchangeRateService service;
+    private ExchangeRateApiService service;
 
     private final String exchangeApiBaseUri = "https://api.example.com/";
     private final String apiKey = "test-api-key";
@@ -36,7 +36,7 @@ class ExchangeRateServiceTest {
     @BeforeEach
     void setUp() {
         when(restTemplateBuilder.build()).thenReturn(restTemplate);
-        service = new ExchangeRateService(restTemplateBuilder, exchangeApiBaseUri, apiKey, apiName);
+        service = new ExchangeRateApiService(restTemplateBuilder, exchangeApiBaseUri, apiKey, apiName);
     }
 
     @Test
