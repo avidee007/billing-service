@@ -150,6 +150,7 @@ curl -X POST http://localhost:8080/billing-service/api/v1/calculate \
 ```
 
 ### 3. Unit Tests
+- Before running tests update api key else one integration test will fail.
 - Run unit tests using Gradlew:
   ```bash
   ./gradlew test
