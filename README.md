@@ -12,7 +12,7 @@ The **Billing Service** calculates the final bill amount for a user after applyi
 ## High-Level Design Details
 1. **Billing Controller & Service**:
    -  `BillingController` handles billing API request.
-   -  `BillingService`  does the overall billing process, including discounts and currency conversion.
+   -  `BillingService` does the overall billing process, including discounts and currency conversion.
    
 2. **Discount Strategy Factory**:
     - Implements the Strategy Design Pattern to dynamically choose the correct discount strategy based on the user type.
@@ -25,8 +25,8 @@ The **Billing Service** calculates the final bill amount for a user after applyi
     - **CustomerLoyaltyDiscount**: 5% discount on non-grocery items for customers associated for more than 2 years.
 
 4. **Currency Exchange Rate Service**:
-    - Integrates with an external API to fetch currency conversion rates.
-    - Converts the final bill amount from the original currency to the target currency.
+    - Integrates with an [ExchangeRate-API](https://www.exchangerate-api.com/) to fetch currency conversion rates.
+    - Used [Pair API](https://www.exchangerate-api.com/docs/pair-conversion-requests) to get conversion rate between two currencies.
 
 5. **Resilient and Modular Design**:
     - Ensures separation of concerns between billing logic, discount calculation, and currency conversion.
