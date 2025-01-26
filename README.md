@@ -66,7 +66,7 @@ The **Billing Service** calculates the final bill amount for a user after applyi
 ## How to Run the Project
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/avidee007/billing-service.git
    cd billing-service
    ```
 2. Update application properties:
