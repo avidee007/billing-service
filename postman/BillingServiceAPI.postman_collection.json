@@ -1,0 +1,55 @@
+{
+    "info": {
+        "name": "Billing Service API",
+        "description": "Collection for Billing Service API endpoints",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Calculate Bill with Discount",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "auth": {
+                    "type": "basic",
+                    "basic": [
+                        {
+                            "key": "username",
+                            "value": "user",
+                            "type": "string"
+                        },
+                        {
+                            "key": "password",
+                            "value": "password",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"userType\": \"EMPLOYEE\",\n  \"tenure\": 4,\n  \"totalAmount\": 700,\n  \"originalCurrency\": \"AED\",\n  \"targetCurrency\": \"INR\",\n  \"items\": [\n    {\n      \"category\": \"ELECTRONICS\",\n      \"price\": 500\n    },\n    {\n      \"category\": \"GROCERIES\",\n      \"price\": 200\n    }\n  ]\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/billing-service/api/v1/calculate",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "billing-service",
+                        "api",
+                        "v1",
+                        "calculate"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
