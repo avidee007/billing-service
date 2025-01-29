@@ -1,0 +1,92 @@
+@startuml
+class Bill {
+    +UserType userType
+    +double tenure
+    +double totalAmount
+    +String originalCurrency
+    +String targetCurrency
+    +List<Item> items
+}
+
+class Item {
+    +Category category
+    +double price
+}
+
+enum UserType {
+    EMPLOYEE, AFFILIATE, CUSTOMER
+}
+
+enum Category {
+    GROCERIES, ELECTRONICS, CLOTHING
+}
+
+class BillController{
+  -BillingService billingService
+  +getBillAmountInTargetCurrencyWithDiscount(Bill bill)
+
+}
+
+interface BillingService {
+    +getBillAfterAppliedDiscount(Bill bill): double
+}
+
+class BillingServiceImpl {
+    -DiscountStrategyFactory discountStrategyFactory
+    -CurrencyExchangeRateService exchangeService
+    +getBillAfterAppliedDiscount(Bill bill): double
+    -convertAmount(Bill bill, double totalAmountAfterDiscount): double
+    -getBillDiscount(Bill bill): double
+    -getDiscountByUserType(Bill bill): double
+}
+
+interface CurrencyConversionRateService {
+     +getConversionRate(String originalCurrency, String targetCurrency): double
+}
+
+class ExchangeRateApiService {
+    -RestTemplate restTemplate
+    -String exchangeApiBaseUri
+    -String apiKey
+    -String apiName
+    +getConversionRate(String originalCurrency, String targetCurrency): double
+}
+
+interface DiscountStrategy {
+    +calculateDiscount(User user, Bill bill): double
+}
+
+class EmployeeDiscount {
+    +calculateDiscount(User user, Bill bill): double
+}
+
+class AffiliateDiscount {
+    +calculateDiscount(User user, Bill bill): double
+}
+
+class CustomerLoyaltyDiscount {
+    +calculateDiscount(User user, Bill bill): double
+}
+
+class DiscountStrategyFactory {
+    -EmployeeDiscount employeeDiscount
+    -AffiliateDiscount affiliateDiscount
+    -CustomerLoyaltyDiscount loyaltyDiscount
+    +getDiscountStrategy(UserType userType): DiscountStrategy
+}
+
+BillController --> BillingService
+BillingService <|.. BillingServiceImpl
+BillingServiceImpl --> DiscountStrategyFactory
+BillingServiceImpl --> CurrencyConversionRateService
+DiscountStrategy <|.. EmployeeDiscount
+DiscountStrategy <|.. AffiliateDiscount
+DiscountStrategy <|.. CustomerLoyaltyDiscount
+ExchangeRateApiService <|.. CurrencyConversionRateService
+DiscountStrategyFactory --> EmployeeDiscount
+DiscountStrategyFactory --> AffiliateDiscount
+DiscountStrategyFactory --> CustomerLoyaltyDiscount
+Bill --> UserType
+Bill --> Item
+Item --> Category
+@enduml
