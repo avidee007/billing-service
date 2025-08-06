@@ -1,8 +1,8 @@
-# Billing Service
+# Billing Application
 
 ## Overview
 
-The **Billing Service** calculates the final bill amount for a user after applying various discounts based on their user
+The **Billing App** calculates the final bill amount for a user after applying various discounts based on their user
 type (Employee, Affiliate, or Customer) and discount on bill amount. Additionally, the service supports real time
 currency conversion for bills by integrating with an external exchange rate API.
 
