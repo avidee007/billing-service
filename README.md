@@ -75,8 +75,8 @@ currency conversion for bills by integrating with an external exchange rate API.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/avidee007/billing-service.git
-   cd billing-service
+   git clone https://github.com/avidee007/billing-app
+   cd billing-app
    ```
 2. Update application properties:
     - Configure the following property in the `src/main/resources/application.properties` file:
